@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package dewars.peers.v1;
+
+message Peer {
+  enum PeerIdType {
+    RSA = 0;
+    Ed25519 = 1;
+    Secp256k1 = 2;
+  }
+
+  message PeerId {
+    PeerIdType type = 1;
+    bytes publicKey = 2;
+  }
+
+  message Address {
+    Multiaddr multiaddr = 1;
+    bool is_certified = 2;
+  }
+
+  message Multiaddr {
+    bytes bytes = 1;
+  }
+
+  message Tag {
+    int32 value = 1;
+  }
+
+  PeerId id = 1;
+  repeated Address addresses = 2;
+  repeated string protocols = 3;
+  map<string, bytes> metadata = 4;
+  map<string, Tag> tags = 5;
+  bytes peer_record_envelope = 6;
+}
+
+service PeersService {
+  rpc GetPeers(GetPeersRequest) returns (stream GetPeersResponse) {}
+}
+
+message GetPeersRequest {}
+
+message GetPeersResponse {
+  Peer peer = 1;
+}

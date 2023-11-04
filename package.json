@@ -1,0 +1,29 @@
+{
+	"name": "@dewars/protobufs",
+	"version": "1.0.0",
+	"description": "",
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"scripts": {
+		"build": "pnpm generate && tsc -p tsconfig.json",
+		"generate": "buf generate dewars"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "GPL-3.0-only",
+	"devDependencies": {
+		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"@bufbuild/buf": "^1.27.2",
+		"@bufbuild/protobuf": "^1.4.1",
+		"@bufbuild/protoc-gen-es": "^1.4.1",
+		"@connectrpc/connect": "^1.1.3",
+		"@connectrpc/protoc-gen-connect-es": "^1.1.3"
+	}
+}
