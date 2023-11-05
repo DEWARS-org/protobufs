@@ -23,4 +23,20 @@ message MessageChat {
   string message = 1;
 }
 
-message MessageEWREP {}
+enum MODULATION_TYPE {
+  AM = 0;
+  FM = 1;
+}
+
+message MessageEWREP {
+  string grid_reference = 1;
+  string identity_stamp = 2;
+  google.protobuf.Timestamp timestamp =  3;
+  uint64 frequency_hertz = 4;
+  repeated string callsign = 5;
+  MODULATION_TYPE modulation = 6;
+  repeated uint32 bearings = 7;
+  string gist = 8;
+  string operator_comment = 9;
+
+}
