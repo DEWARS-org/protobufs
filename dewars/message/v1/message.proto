@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package dewars.message.v1;
+
+import "dewars/operator/v1/operator.proto";
+import "google/protobuf/timestamp.proto";
+
+message Message {
+  string id = 1;
+  oneof payload {
+    MessageChat chat = 2;
+    MessageEWREP ewrep = 3;
+  }
+  bytes signature = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+
+  OperatorIdentity identity = 7;
+  Operator operator = 8;
+}
+
+message MessageChat {
+  string message = 1;
+}
+
+message MessageEWREP {}

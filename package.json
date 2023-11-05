@@ -3,18 +3,11 @@
 	"version": "1.0.0",
 	"description": "",
 	"type": "module",
-	"exports": {
-		".": {
-			"import": "./dist/index.js",
-			"types": "./dist/index.d.ts"
-		}
-	},
+	"exports": "./dist/index.js",
 	"scripts": {
-		"build": "pnpm generate && tsc -p tsconfig.json",
+		"build": "pnpm generate && tsc",
 		"generate": "buf generate dewars"
 	},
-	"keywords": [],
-	"author": "",
 	"license": "GPL-3.0-only",
 	"devDependencies": {
 		"typescript": "^5.2.2"
