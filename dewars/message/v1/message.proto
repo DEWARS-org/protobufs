@@ -40,3 +40,7 @@ message MessageEWREP {
   string operator_comment = 9;
 
 }
+
+message MessageGeoLocation {
+  
+}
