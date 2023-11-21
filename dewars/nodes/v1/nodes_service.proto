@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package dewars.nodes.v1;
+
+import "nodes/v1/nodes.proto";
+
+service NodesService {
+  rpc GetNodes(GetNodesRequest) returns (stream GetNodesResponse) {}
+  rpc SetNodeName(SetNodeNameRequest) returns (SetNodeNameResponse) {}
+  rpc CreateOperator(CreateOperatorRequest) returns (CreateOperatorResponse) {}
+}
+
+message GetNodesRequest {}
+
+message GetNodesResponse {
+  repeated Node nodes = 1;
+}
+
+message SetNodeNameRequest {
+  string name = 1;
+}
+
+message SetNodeNameResponse {}
+
+message CreateOperatorRequest {
+  string id = 1;
+}
+
+message CreateOperatorResponse {
+  Operator operator = 1;
+}

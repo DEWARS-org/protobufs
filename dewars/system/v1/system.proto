@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package dewars.system.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message ServerConfig {}
+
+message NetworkAdapter {
+  string interface = 1;
+  repeated Address addresses = 2;
+}
+
+enum IPFamily {
+  IPv4 = 0;
+  IPv6 = 1;
+}
+
+message Address {
+  string address = 1;
+  string netmask = 2;
+  IPFamily family = 3;
+  string mac = 4;
+  optional string cidr = 5;
+  bool enabled = 6;
+  bool listening = 7;
+}
+
+message ServerStatus {
+  bool running = 1;
+  bool listen_ipv4 = 2;
+  bool listen_ipv6 = 3;
+  repeated NetworkAdapter adapters = 4;
+}
+
+message Notification {
+  enum NotificationType {
+    OTHER = 0;
+  }
+
+  enum NotificationLevel {
+    INFO = 0;
+    WARNING = 1;
+    ERROR = 2;
+  }
+
+  string id = 1;
+  NotificationType type = 2;
+  NotificationLevel level = 3;
+  string message = 4;
+  bool active = 5;
+  bool acknowledged = 6;
+  google.protobuf.Timestamp timestamp = 7;
+}

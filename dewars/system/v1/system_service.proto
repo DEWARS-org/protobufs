@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package dewars.system.v1;
+
+import "system/v1/system.proto";
+
+service SystemService {
+  rpc SetDisabledNetworkAddresses(SetDisabledNetworkAddressesRequest) returns (SetDisabledNetworkAddressesResponse) {}
+  rpc StartServer(StartServerRequest) returns (StartServerResponse) {}
+  rpc StopServer(StopServerRequest) returns (StopServerResponse) {}
+  rpc GetServerStatus(GetServerStatusRequest) returns (stream GetServerStatusResponse) {}
+  rpc Notifications(NotificationsRequest) returns (stream NotificationsResponse) {}
+}
+
+message SetDisabledNetworkAddressesRequest {
+  bool listen_ipv4 = 1;
+  bool listen_ipv6 = 2;
+  repeated string mac = 3;
+}
+message SetDisabledNetworkAddressesResponse {}
+
+message StartServerRequest {}
+message StartServerResponse {}
+
+message StopServerRequest {}
+message StopServerResponse {}
+
+message GetServerStatusRequest {}
+message GetServerStatusResponse {
+  ServerStatus status = 1;
+}
+
+message NotificationsRequest {}
+message NotificationsResponse {
+  repeated Notification notifications = 1;
+}

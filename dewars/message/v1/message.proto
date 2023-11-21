@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package dewars.message.v1;
 
-import "dewars/operator/v1/operator.proto";
 import "google/protobuf/timestamp.proto";
 
 message Message {
@@ -15,15 +14,14 @@ message Message {
   google.protobuf.Timestamp created_at = 5;
   google.protobuf.Timestamp updated_at = 6;
 
-  OperatorIdentity identity = 7;
-  Operator operator = 8;
+  string identity = 7;
 }
 
 message MessageChat {
   string message = 1;
 }
 
-enum MODULATION_TYPE {
+enum EWREP_MODULATION_TYPE {
   AM = 0;
   FM = 1;
 }
@@ -31,14 +29,25 @@ enum MODULATION_TYPE {
 message MessageEWREP {
   string grid_reference = 1;
   string identity_stamp = 2;
-  google.protobuf.Timestamp timestamp =  3;
+  google.protobuf.Timestamp timestamp = 3;
   uint64 frequency_hertz = 4;
   repeated string callsign = 5;
-  MODULATION_TYPE modulation = 6;
+  MessageEWREP_Technology technology = 6;
   repeated uint32 bearings = 7;
   string gist = 8;
   string operator_comment = 9;
+}
 
+enum EWREP_TECHNOLOGY_TYPE {
+  RADAR = 0;
+  COMMS = 1;
+  EW = 2;
+  OTHER = 3;
+}
+
+message MessageEWREP_Technology {
+  EWREP_TECHNOLOGY_TYPE type = 1;
+  EWREP_MODULATION_TYPE modulation = 2;
 }
 
 message MessageGeoLocation {

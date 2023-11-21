@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package dewars.nodes.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message Node {
+  message Address {
+    bytes multiaddr = 1;
+    bool is_certified = 2;
+  }
+
+  string id = 1;
+  bytes publicKey = 2;
+  optional string name = 3;
+  bool local = 4;
+  repeated Address addresses = 5;
+  repeated Operator operators = 6;
+}
+
+message Operator {
+  string id = 1;
+  google.protobuf.Timestamp created_at = 3;
+  google.protobuf.Timestamp updated_at = 4;
+
+  string node = 5;
+  repeated string messages = 6;
+  OperatorIdentity identity = 7;
+  repeated OperatorIdentity pastIdentities = 8;
+}
+
+message OperatorIdentity {
+  string id = 1;
+  bytes public_key = 2;
+  optional bytes private_key = 3;
+  bytes signature = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+
+  OperatorIdentity superseeded_by = 7;
+  OperatorIdentity superseeds = 8;
+  repeated string messages = 9;
+  Operator operator = 10;
+}
