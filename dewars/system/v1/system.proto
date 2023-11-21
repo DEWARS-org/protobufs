@@ -36,6 +36,13 @@ message ServerStatus {
 message Notification {
   enum NotificationType {
     OTHER = 0;
+    REGISTER = 1;
+  }
+
+  enum NotificationCategory {
+    SYSTEM = 0;
+    NODE = 1;
+    OPERATOR = 2;
   }
 
   enum NotificationLevel {
@@ -45,10 +52,11 @@ message Notification {
   }
 
   string id = 1;
-  NotificationType type = 2;
-  NotificationLevel level = 3;
-  string message = 4;
-  bool active = 5;
-  bool acknowledged = 6;
-  google.protobuf.Timestamp timestamp = 7;
+  NotificationLevel level = 2;
+  NotificationCategory category = 3;
+  NotificationType type = 4;
+  string message = 5;
+  bool active = 6;
+  bool acknowledged = 7;
+  google.protobuf.Timestamp timestamp = 8;
 }

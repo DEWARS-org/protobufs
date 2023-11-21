@@ -10,6 +10,7 @@ service SystemService {
   rpc StopServer(StopServerRequest) returns (StopServerResponse) {}
   rpc GetServerStatus(GetServerStatusRequest) returns (stream GetServerStatusResponse) {}
   rpc Notifications(NotificationsRequest) returns (stream NotificationsResponse) {}
+  rpc AcknowledgeNotification(AcknowledgeNotificationRequest) returns (AcknowledgeNotificationResponse) {}
 }
 
 message SetDisabledNetworkAddressesRequest {
@@ -34,3 +35,8 @@ message NotificationsRequest {}
 message NotificationsResponse {
   repeated Notification notifications = 1;
 }
+
+message AcknowledgeNotificationRequest {
+  string id = 1;
+}
+message AcknowledgeNotificationResponse {}
