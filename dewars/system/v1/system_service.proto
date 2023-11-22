@@ -2,14 +2,15 @@ syntax = "proto3";
 
 package dewars.system.v1;
 
+import "google/protobuf/empty.proto";
 import "system/v1/system.proto";
 
 service SystemService {
-  rpc SetDisabledNetworkAddresses(SetDisabledNetworkAddressesRequest) returns (SetDisabledNetworkAddressesResponse) {}
-  rpc StartServer(StartServerRequest) returns (StartServerResponse) {}
-  rpc StopServer(StopServerRequest) returns (StopServerResponse) {}
-  rpc GetServerStatus(GetServerStatusRequest) returns (stream GetServerStatusResponse) {}
-  rpc Notifications(NotificationsRequest) returns (stream NotificationsResponse) {}
+  rpc SetDisabledNetworkAddresses(SetDisabledNetworkAddressesRequest) returns (google.protobuf.Empty) {}
+  rpc StartServer(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  rpc StopServer(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+  rpc GetServerStatus(google.protobuf.Empty) returns (stream GetServerStatusResponse) {}
+  rpc NotificationStream(google.protobuf.Empty) returns (stream NotificationStreamResponse) {}
   rpc AcknowledgeNotification(AcknowledgeNotificationRequest) returns (AcknowledgeNotificationResponse) {}
 }
 
@@ -18,21 +19,12 @@ message SetDisabledNetworkAddressesRequest {
   bool listen_ipv6 = 2;
   repeated string mac = 3;
 }
-message SetDisabledNetworkAddressesResponse {}
 
-message StartServerRequest {}
-message StartServerResponse {}
-
-message StopServerRequest {}
-message StopServerResponse {}
-
-message GetServerStatusRequest {}
 message GetServerStatusResponse {
   ServerStatus status = 1;
 }
 
-message NotificationsRequest {}
-message NotificationsResponse {
+message NotificationStreamResponse {
   repeated Notification notifications = 1;
 }
 

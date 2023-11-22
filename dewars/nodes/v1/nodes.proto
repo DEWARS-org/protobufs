@@ -15,7 +15,7 @@ message Node {
   optional string name = 3;
   bool local = 4;
   repeated Address addresses = 5;
-  repeated Operator operators = 6;
+  repeated string operator_ids = 6;
 }
 
 message Operator {
@@ -23,7 +23,7 @@ message Operator {
   google.protobuf.Timestamp created_at = 3;
   google.protobuf.Timestamp updated_at = 4;
 
-  string node = 5;
+  string node_id = 5;
   repeated string messages = 6;
   OperatorIdentity identity = 7;
   repeated OperatorIdentity pastIdentities = 8;
