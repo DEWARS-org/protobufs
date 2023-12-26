@@ -10,11 +10,9 @@ message Message {
     MessageChat chat = 2;
     MessageEWREP ewrep = 3;
   }
-  bytes signature = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
-
-  string identity = 7;
+  string identity_id = 4;
+  bytes signature = 5;
+  google.protobuf.Timestamp timestamp = 6;
 }
 
 message MessageChat {
@@ -50,6 +48,4 @@ message MessageEWREP_Technology {
   EWREP_MODULATION_TYPE modulation = 2;
 }
 
-message MessageGeoLocation {
-  
-}
+message MessageGeoLocation {}
