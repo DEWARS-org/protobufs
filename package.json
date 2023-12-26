@@ -1,6 +1,6 @@
 {
-	"name": "@dewars/protobufs",
-	"version": "1.1.0",
+	"name": "@dewars-org/protobufs",
+	"version": "1.0.0",
 	"description": "",
 	"type": "module",
 	"main": "./dist/index.js",
