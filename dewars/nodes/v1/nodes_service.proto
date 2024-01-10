@@ -13,11 +13,11 @@ service NodesService {
 }
 
 message NodeStreamResponse {
-  repeated Node nodes = 1;
+  Node node = 1;
 }
 
 message OperatorStreamResponse {
-  repeated Operator operators = 1;
+  Operator operator = 1;
 }
 
 message SetNodeNameRequest {
