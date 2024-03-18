@@ -1,28 +1,26 @@
 {
-	"name": "@dewars-org/protobufs",
-	"version": "1.0.2",
-	"description": "",
-	"type": "module",
-	"main": "./dist/index.js",
-	"exports": "./dist/index.js",
-	"scripts": {
-		"build": "pnpm clean && pnpm generate && tsc",
-		"generate": "buf generate dewars",
-		"clean": "rm -rf dist && rm -rf src/generated"
-	},
-	"license": "GPL-3.0-only",
-	"files": [
-		"dist"
-	],
-	"devDependencies": {
-		"biome": "^0.3.3",
-		"typescript": "^5.3.3"
-	},
-	"dependencies": {
-		"@bufbuild/buf": "^1.28.1",
-		"@bufbuild/protobuf": "^1.6.0",
-		"@bufbuild/protoc-gen-es": "^1.6.0",
-		"@connectrpc/connect": "^1.3.0",
-		"@connectrpc/protoc-gen-connect-es": "^1.3.0"
-	}
+  "name": "@dewars-org/protobufs",
+  "version": "1.0.3",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "build": "pnpm clean && pnpm generate && tsc",
+    "generate": "buf generate dewars",
+    "clean": "rm -rf dist && rm -rf src/generated"
+  },
+  "license": "GPL-3.0-only",
+  "files": ["dist"],
+  "devDependencies": {
+    "@biomejs/biome": "^1.6.1",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "@bufbuild/buf": "^1.30.0",
+    "@bufbuild/protobuf": "^1.8.0",
+    "@bufbuild/protoc-gen-es": "^1.8.0",
+    "@connectrpc/connect": "^1.4.0",
+    "@connectrpc/protoc-gen-connect-es": "^1.4.0"
+  }
 }
