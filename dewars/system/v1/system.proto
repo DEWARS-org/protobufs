@@ -35,6 +35,9 @@ message Address {
 }
 
 message ServerStatus {
+  Classification classification = 1;
+  repeated Ingress ingresses = 2;
+  repeated Egress egresses = 3;
   bool running = 1;
   bool listen_ipv4 = 2;
   bool listen_ipv6 = 3;
