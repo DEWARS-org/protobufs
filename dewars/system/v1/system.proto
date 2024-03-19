@@ -4,6 +4,14 @@ package dewars.system.v1;
 
 import "google/protobuf/timestamp.proto";
 
+enum Classification {
+  UNOFFICIAL = 0;
+  OFFICIAL = 1;
+  PROTECTED = 2;
+  SECRET = 3;
+  TOP_SECRET = 4;
+}
+
 message ServerConfig {}
 
 message NetworkAdapter {
