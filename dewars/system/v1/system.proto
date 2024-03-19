@@ -62,12 +62,19 @@ message Notification {
 }
 
 message Ingress {
-  enum IngressType {
+  enum Type {
     ROVER = 0;
   }
 
+  message Input {
+    Type type = 1;
+    string ip = 2;
+    uint32 port = 3;
+    bool enabled = 4;
+  }
+
   string id = 1;
-  IngressType type = 2;
+  Type type = 2;
   string ip = 3;
   uint32 port = 4;
   bool enabled = 5;
@@ -76,13 +83,20 @@ message Ingress {
 }
 
 message Egress {
-  enum EgressType {
+  enum Type {
     ROVER = 0;
     COT = 1;
   }
 
+  message Input {
+    Type type = 1;
+    string ip = 2;
+    uint32 port = 3;
+    bool enabled = 4;
+  }
+
   string id = 1;
-  EgressType type = 2;
+  Type type = 2;
   string ip = 3;
   uint32 port = 4;
   bool enabled = 5;
