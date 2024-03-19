@@ -14,7 +14,6 @@ service SystemService {
   rpc AcknowledgeNotification(AcknowledgeNotificationRequest) returns (google.protobuf.Empty) {}
   rpc AddIntegration(AddIntegrationRequest) returns (google.protobuf.Empty) {}
   rpc EditIntegration(EditIntegrationRequest) returns (google.protobuf.Empty) {}
-  
 }
 
 message SetDisabledNetworkAddressesRequest {
@@ -48,5 +47,4 @@ message EditIntegrationRequest {
     Ingress.Input ingress = 2;
     Egress.Input egress = 3;
   }
-}
 }
