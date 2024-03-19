@@ -60,3 +60,32 @@ message Notification {
   bool acknowledged = 7;
   google.protobuf.Timestamp timestamp = 8;
 }
+
+message Ingress {
+  enum IngressType {
+    ROVER = 0;
+  }
+
+  string id = 1;
+  IngressType type = 2;
+  string ip = 3;
+  uint32 port = 4;
+  bool enabled = 5;
+  google.protobuf.Timestamp createdAt = 6;
+  google.protobuf.Timestamp updatedAt = 7;
+}
+
+message Egress {
+  enum EgressType {
+    ROVER = 0;
+    COT = 1;
+  }
+
+  string id = 1;
+  EgressType type = 2;
+  string ip = 3;
+  uint32 port = 4;
+  bool enabled = 5;
+  google.protobuf.Timestamp createdAt = 6;
+  google.protobuf.Timestamp updatedAt = 7;
+}
