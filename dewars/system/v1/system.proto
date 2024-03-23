@@ -36,7 +36,7 @@ message Address {
 
 message ServerStatus {
   Classification classification = 1;
-  string caveats = 2;
+  repeated string caveats = 2;
   repeated Integration integrations = 3;
   bool running = 4;
   bool listen_ipv4 = 5;
