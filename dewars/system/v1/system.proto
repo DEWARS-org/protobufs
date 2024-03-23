@@ -35,13 +35,18 @@ message Address {
 }
 
 message ServerStatus {
+  SecurityMarking marking = 1;
+  repeated Integration integrations = 2;
+  bool running = 3;
+  bool listen_ipv4 = 4;
+  bool listen_ipv6 = 5;
+  repeated NetworkAdapter adapters = 6;
+}
+
+message SecurityMarking {
   Classification classification = 1;
-  repeated string caveats = 2;
-  repeated Integration integrations = 3;
-  bool running = 4;
-  bool listen_ipv4 = 5;
-  bool listen_ipv6 = 6;
-  repeated NetworkAdapter adapters = 7;
+  string releasability = 2;
+  repeated string caveats = 3;
 }
 
 message Notification {
