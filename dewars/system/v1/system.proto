@@ -36,8 +36,7 @@ message Address {
 
 message ServerStatus {
   Classification classification = 1;
-  repeated Ingress ingresses = 2;
-  repeated Egress egresses = 3;
+  repeated Integration integrations = 2;
   bool running = 4;
   bool listen_ipv4 = 5;
   bool listen_ipv6 = 6;
@@ -72,31 +71,16 @@ message Notification {
   google.protobuf.Timestamp timestamp = 8;
 }
 
-message Ingress {
-  enum Type {
-    ROVER = 0;
-  }
-
-  message Input {
-    Type type = 1;
-    string ip = 2;
-    uint32 port = 3;
-    bool enabled = 4;
-  }
-
-  string id = 1;
-  Type type = 2;
-  string ip = 3;
-  uint32 port = 4;
-  bool enabled = 5;
-  google.protobuf.Timestamp createdAt = 6;
-  google.protobuf.Timestamp updatedAt = 7;
-}
-
-message Egress {
+message Integration {
   enum Type {
     ROVER = 0;
     COT = 1;
+    MOSAIC = 2;
+  }
+
+  enum Direction {
+    Ingress = 0;
+    Egress = 1;
   }
 
   message Input {
@@ -107,10 +91,11 @@ message Egress {
   }
 
   string id = 1;
-  Type type = 2;
-  string ip = 3;
-  uint32 port = 4;
-  bool enabled = 5;
-  google.protobuf.Timestamp createdAt = 6;
-  google.protobuf.Timestamp updatedAt = 7;
+  Direction direction = 2;
+  Type type = 3;
+  string ip = 4;
+  uint32 port = 5;
+  bool enabled = 6;
+  google.protobuf.Timestamp createdAt = 7;
+  google.protobuf.Timestamp updatedAt = 8;
 }

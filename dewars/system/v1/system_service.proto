@@ -35,8 +35,5 @@ message AcknowledgeNotificationRequest {
 
 message SetIntegrationRequest {
   optional string id = 1;
-  oneof integration {
-    Ingress.Input ingress = 2;
-    Egress.Input egress = 3;
-  }
+  Integration.Input integration = 2;
 }
