@@ -12,7 +12,9 @@ service SystemService {
   rpc GetServerStatus(google.protobuf.Empty) returns (stream GetServerStatusResponse) {}
   rpc NotificationStream(google.protobuf.Empty) returns (stream NotificationStreamResponse) {}
   rpc AcknowledgeNotification(AcknowledgeNotificationRequest) returns (google.protobuf.Empty) {}
+
   rpc SetIntegration(SetIntegrationRequest) returns (google.protobuf.Empty) {}
+  rpc RemoveIntegration(RemoveIntegrationRequest) returns (google.protobuf.Empty) {}
 }
 
 message SetDisabledNetworkAddressesRequest {
@@ -36,4 +38,8 @@ message AcknowledgeNotificationRequest {
 message SetIntegrationRequest {
   optional string id = 1;
   Integration.Input integration = 2;
+}
+
+message RemoveIntegrationRequest {
+  string id = 1;
 }
