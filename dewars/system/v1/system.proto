@@ -76,6 +76,7 @@ message Integration {
     ROVER = 0;
     COT = 1;
     MOSAIC = 2;
+    ROLLING_CODES = 3;
   }
 
   enum Direction {
@@ -97,6 +98,7 @@ message Integration {
   string ip = 4;
   uint32 port = 5;
   bool enabled = 6;
-  google.protobuf.Timestamp createdAt = 7;
-  google.protobuf.Timestamp updatedAt = 8;
+  bool healthy = 7;
+  google.protobuf.Timestamp createdAt = 8;
+  google.protobuf.Timestamp updatedAt = 9;
 }
