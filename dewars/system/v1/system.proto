@@ -85,9 +85,10 @@ message Integration {
 
   message Input {
     Type type = 1;
-    string ip = 2;
-    uint32 port = 3;
-    bool enabled = 4;
+    Direction direction = 2;
+    string ip = 3;
+    uint32 port = 4;
+    bool enabled = 5;
   }
 
   string id = 1;
