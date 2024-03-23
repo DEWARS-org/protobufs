@@ -12,7 +12,7 @@ service SystemService {
   rpc GetServerStatus(google.protobuf.Empty) returns (stream GetServerStatusResponse) {}
   rpc NotificationStream(google.protobuf.Empty) returns (stream NotificationStreamResponse) {}
   rpc AcknowledgeNotification(AcknowledgeNotificationRequest) returns (google.protobuf.Empty) {}
-  rpc SetIntegration(AddIntegrationRequest) returns (google.protobuf.Empty) {}
+  rpc SetIntegration(SetIntegrationRequest) returns (google.protobuf.Empty) {}
 }
 
 message SetDisabledNetworkAddressesRequest {
