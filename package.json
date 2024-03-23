@@ -1,6 +1,6 @@
 {
   "name": "@dewars-org/protobufs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "type": "module",
   "main": "./dist/index.js",
@@ -13,8 +13,8 @@
   "license": "GPL-3.0-only",
   "files": ["dist"],
   "devDependencies": {
-    "@biomejs/biome": "^1.6.1",
-    "typescript": "^5.4.2"
+    "@biomejs/biome": "^1.6.2",
+    "typescript": "^5.4.3"
   },
   "dependencies": {
     "@bufbuild/buf": "^1.30.0",
