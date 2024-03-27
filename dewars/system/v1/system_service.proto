@@ -14,7 +14,9 @@ service SystemService {
   rpc AcknowledgeNotification(AcknowledgeNotificationRequest) returns (google.protobuf.Empty) {}
 
   rpc SetIntegration(SetIntegrationRequest) returns (google.protobuf.Empty) {}
-  rpc RemoveIntegration(RemoveIntegrationRequest) returns (google.protobuf.Empty) {}
+  rpc RemoveIntegration(RemoveRequest) returns (google.protobuf.Empty) {}
+  rpc SetConnection(SetConnectionRequest) returns (google.protobuf.Empty) {}
+  rpc RemoveConnection(RemoveRequest) returns (google.protobuf.Empty) {}
 }
 
 message SetDisabledNetworkAddressesRequest {
@@ -40,6 +42,11 @@ message SetIntegrationRequest {
   Integration.Input integration = 2;
 }
 
-message RemoveIntegrationRequest {
+message SetConnectionRequest {
+  optional string id = 1;
+  Connection.Input connection = 2;
+}
+
+message RemoveRequest {
   string id = 1;
 }

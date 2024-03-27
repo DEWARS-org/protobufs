@@ -12,6 +12,20 @@ enum Classification {
   TOP_SECRET = 4;
 }
 
+message Connection {
+  message Input {
+    string ip = 1;
+    uint32 port = 2;
+    bool enabled = 3;
+  }
+
+  string id = 1;
+  string ip = 2;
+  uint32 port = 3;
+  bool enabled = 4;
+  google.protobuf.Timestamp lastSeen = 5;
+}
+
 message ServerConfig {}
 
 message NetworkAdapter {
@@ -36,11 +50,12 @@ message Address {
 
 message ServerStatus {
   SecurityMarking marking = 1;
-  repeated Integration integrations = 2;
-  bool running = 3;
-  bool listen_ipv4 = 4;
-  bool listen_ipv6 = 5;
-  repeated NetworkAdapter adapters = 6;
+  repeated Connection connections = 2;
+  repeated Integration integrations = 3;
+  bool running = 4;
+  bool listen_ipv4 = 5;
+  bool listen_ipv6 = 6;
+  repeated NetworkAdapter adapters = 7;
 }
 
 message SecurityMarking {
