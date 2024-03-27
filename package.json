@@ -1,6 +1,6 @@
 {
   "name": "@dewars-org/protobufs",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,9 +11,7 @@
     "clean": "rm -rf dist && rm -rf src/generated"
   },
   "license": "GPL-3.0-only",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "devDependencies": {
     "@biomejs/biome": "^1.6.3",
     "typescript": "^5.4.3"
