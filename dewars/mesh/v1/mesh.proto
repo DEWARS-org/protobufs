@@ -5,15 +5,29 @@ package dewars.mesh.v1;
 message Packet {
   int32 path = 1;
   int32 hops_remaining = 2;
-  // Map of node ID to payload to enable batched packets
-  map<uint32, Payload> payload = 3;
-}
-
-message Payload {
-  uint32 counter = 1;
-  string data = 2;
+  oneof payload {
+    NetworkPayload network = 3;
+    ControlPayload control = 4;
+  }
 }
 
 message MeshTable {
   map<int32, string> table = 1;
+}
+
+message NetworkPayload {
+  message Segment {
+    uint32 counter = 1;
+    string data = 2;
+  }
+  map<uint32, Segment> segments = 1;
+}
+
+message ControlPayload {
+  enum Type {
+    REQUEST_SEGMENT = 0;
+    REQUEST_ALL = 1;
+  }
+  Type type = 1;
+  uint32 id = 2;
 }
