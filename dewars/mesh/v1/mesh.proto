@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package dewars.mesh.v1;
+
+message Packet {
+  int32 path = 1;
+  int32 hops_remaining = 2;
+  bytes payload = 3;
+}
+
+message MeshTable {
+  map<int32, string> table = 1;
+}

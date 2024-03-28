@@ -1,3 +1,4 @@
+export * from "./generated/mesh/v1/mesh_pb.js";
 export * from "./generated/message/v1/message_pb.js";
 export * from "./generated/nodes/v1/nodes_pb.js";
 export * from "./generated/nodes/v1/nodes_service_pb.js";
