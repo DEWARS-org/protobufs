@@ -5,9 +5,15 @@ package dewars.mesh.v1;
 message Packet {
   int32 path = 1;
   int32 hops_remaining = 2;
+  bool is_multicast = 3;
+
+  /**
+   * If is_multicast is true, this is the destination server meshId, otherwise it is the destination cryptographic groupId.
+   */
+  int32 destination_id = 4;
   oneof payload {
-    NetworkPayload network = 3;
-    ControlPayload control = 4;
+    NetworkPayload network = 5;
+    ControlPayload control = 6;
   }
 }
 
