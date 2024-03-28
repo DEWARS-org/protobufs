@@ -5,7 +5,13 @@ package dewars.mesh.v1;
 message Packet {
   int32 path = 1;
   int32 hops_remaining = 2;
-  bytes payload = 3;
+  // Map of node ID to payload to enable batched packets
+  map<uint32, Payload> payload = 3;
+}
+
+message Payload {
+  uint32 counter = 1;
+  string data = 2;
 }
 
 message MeshTable {
