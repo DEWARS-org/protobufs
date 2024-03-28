@@ -28,6 +28,8 @@ message ControlPayload {
     REQUEST_SEGMENT = 0;
     REQUEST_ALL = 1;
   }
-  Type type = 1;
-  uint32 id = 2;
+  uint32 id = 1;
+  Type type = 2;
+  uint32 mesh_id = 3;
+  uint32 segment_id = 4;
 }
