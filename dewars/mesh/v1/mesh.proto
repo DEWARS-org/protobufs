@@ -3,11 +3,26 @@ syntax = "proto3";
 package dewars.mesh.v1;
 
 message Packet {
-  int32 path = 1;
-  int32 hops_remaining = 2;
-  oneof payload {
-    NetworkPayload network = 3;
-    ControlPayload control = 4;
+  message MeshIdRequest {
+    string nodeId = 1;
+  }
+
+  message MeshIdResponse {
+    string meshId = 1;
+  }
+
+  message RoutedPacket {
+    int32 path = 1;
+    int32 hops_remaining = 2;
+    oneof payload {
+      NetworkPayload network = 3;
+      ControlPayload control = 4;
+    }
+  }
+  oneof tmp {
+    MeshIdRequest meshIdRequest = 5;
+    MeshIdResponse meshIdResponse = 6;
+    RoutedPacket routed = 7;
   }
 }
 
