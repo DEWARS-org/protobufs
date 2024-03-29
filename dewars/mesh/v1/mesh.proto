@@ -8,10 +8,30 @@ message Packet {
   }
 
   message MeshIdResponse {
-    string meshId = 1;
+    uint32 meshId = 1;
   }
 
   message RoutedPacket {
+    message NetworkPayload {
+      message Segment {
+        uint32 id = 1;
+        uint32 mesh_id = 2;
+        string data = 3;
+      }
+      repeated Segment segments = 1;
+    }
+
+    message ControlPayload {
+      enum Type {
+        REQUEST_SEGMENT = 0;
+        REQUEST_ALL = 1;
+      }
+      uint32 id = 1;
+      Type type = 2;
+      uint32 mesh_id = 3;
+      uint32 segment_id = 4;
+    }
+
     int32 path = 1;
     int32 hops_remaining = 2;
     oneof payload {
@@ -19,33 +39,9 @@ message Packet {
       ControlPayload control = 4;
     }
   }
-  oneof tmp {
+  oneof payload {
     MeshIdRequest meshIdRequest = 5;
     MeshIdResponse meshIdResponse = 6;
     RoutedPacket routed = 7;
   }
-}
-
-message MeshTable {
-  map<int32, string> table = 1;
-}
-
-message NetworkPayload {
-  message Segment {
-    uint32 id = 1;
-    uint32 mesh_id = 2;
-    string data = 3;
-  }
-  repeated Segment segments = 1;
-}
-
-message ControlPayload {
-  enum Type {
-    REQUEST_SEGMENT = 0;
-    REQUEST_ALL = 1;
-  }
-  uint32 id = 1;
-  Type type = 2;
-  uint32 mesh_id = 3;
-  uint32 segment_id = 4;
 }
