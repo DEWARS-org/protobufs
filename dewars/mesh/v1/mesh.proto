@@ -3,26 +3,22 @@ syntax = "proto3";
 package dewars.mesh.v1;
 
 message Packet {
-  message MeshIdRequest {
-    string address = 1;
-    uint32 port = 2;
-  }
+  message Route {
+    message Edge {
+      uint32 source = 1;
+      uint32 destination = 2;
+    }
 
-  message MeshIdResponse {
-    repeated RouteEntry routes = 2;
-  }
-
-  message RouteEntry {
-    uint32 mesh_id = 1;
-    string address = 2;
-    uint32 port = 3;
+    string id = 1;
+    repeated Edge path = 2;
+    uint32 revision = 3;
   }
 
   message RoutedPacket {
     message NetworkPayload {
       message Segment {
         uint32 id = 1;
-        uint32 mesh_id = 2;
+        repeated uint32 destination = 2;
         string data = 3;
       }
       repeated Segment segments = 1;
@@ -47,8 +43,9 @@ message Packet {
     }
   }
   oneof payload {
-    MeshIdRequest meshIdRequest = 5;
-    MeshIdResponse meshIdResponse = 6;
-    RoutedPacket routed = 7;
+    string connection_request = 1;
+    string connection_response = 2;
+    Route route = 3;
+    RoutedPacket packet = 4;
   }
 }
