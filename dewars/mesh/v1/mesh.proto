@@ -4,11 +4,18 @@ package dewars.mesh.v1;
 
 message Packet {
   message MeshIdRequest {
-    string nodeId = 1;
+    string address = 1;
+    uint32 port = 2;
   }
 
   message MeshIdResponse {
-    map<uint32, string> table = 1;
+    repeated RouteEntry routes = 2;
+  }
+
+  message RouteEntry {
+    uint32 mesh_id = 1;
+    string address = 2;
+    uint32 port = 3;
   }
 
   message RoutedPacket {
