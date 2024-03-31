@@ -9,9 +9,10 @@ message Packet {
       uint32 destination = 2;
     }
 
-    string id = 1;
-    repeated Edge path = 2;
-    uint32 revision = 3;
+    uint32 id = 1;
+    string node_id = 2;
+    repeated Edge path = 3;
+    uint32 revision = 4;
   }
 
   message RoutedPacket {
@@ -46,6 +47,7 @@ message Packet {
     string connection_request = 1;
     string connection_response = 2;
     Route route = 3;
-    RoutedPacket packet = 4;
+    uint32 route_acknowledgement = 4;
+    RoutedPacket packet = 5;
   }
 }
