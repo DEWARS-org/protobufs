@@ -26,6 +26,19 @@ message Connection {
   optional google.protobuf.Timestamp lastSeen = 5;
 }
 
+message Topology {
+  message Node {
+    string id = 1;
+  }
+  message Link {
+    string source = 1;
+    string target = 2;
+  }
+
+  repeated Node nodes = 1;
+  repeated Link links = 2;
+}
+
 message ServerConfig {}
 
 message NetworkAdapter {
@@ -56,6 +69,7 @@ message ServerStatus {
   bool listen_ipv4 = 5;
   bool listen_ipv6 = 6;
   repeated NetworkAdapter adapters = 7;
+  Topology topology = 8;
 }
 
 message SecurityMarking {
