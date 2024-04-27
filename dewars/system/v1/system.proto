@@ -137,3 +137,36 @@ message Integration {
   google.protobuf.Timestamp createdAt = 8;
   google.protobuf.Timestamp updatedAt = 9;
 }
+
+
+message ServerStatusNew {
+  message Mesh {
+
+    message Node {
+      string id = 1;
+
+    }
+
+    message Edge {
+      string id = 1;
+      string source = 2;
+      uint32 source_index = 3;
+      string target = 4;
+      uint32 target_index = 5;
+
+    }
+
+    repeated Node nodes = 1;
+    repeated Edge edges = 2; 
+  }
+
+  message System {
+    SecurityMarking marking = 1;
+  }
+
+
+  oneof payload {
+    System system = 1;
+    Mesh mesh = 2;
+  }
+}

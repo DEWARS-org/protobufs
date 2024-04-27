@@ -12,6 +12,7 @@ service SystemService {
   rpc GetServerStatus(google.protobuf.Empty) returns (stream GetServerStatusResponse) {}
   rpc NotificationStream(google.protobuf.Empty) returns (stream NotificationStreamResponse) {}
   rpc AcknowledgeNotification(AcknowledgeNotificationRequest) returns (google.protobuf.Empty) {}
+  rpc ServerStatusStream(google.protobuf.Empty) returns (stream ServerStatusNew) {}
 
   rpc SetIntegration(SetIntegrationRequest) returns (google.protobuf.Empty) {}
   rpc RemoveIntegration(RemoveRequest) returns (google.protobuf.Empty) {}
