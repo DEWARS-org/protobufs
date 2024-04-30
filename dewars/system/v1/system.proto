@@ -163,9 +163,16 @@ message ServerStatusNew {
     SecurityMarking marking = 1;
   }
 
+  message Connection {
+    string id = 1;
+    string ip = 2;
+    uint32 port = 3;
+    bool enabled = 4;
+  }
 
   oneof payload {
     System system = 1;
     Mesh mesh = 2;
+    Connection connection = 3;
   }
 }
