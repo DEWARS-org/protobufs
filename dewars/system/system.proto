@@ -1,0 +1,19 @@
+syntax = "proto3";
+// NS: com.internal
+package dewars.system;
+
+// ID: com.internal.heartbeat
+// Also measures clock difference between server and client
+message Heartbeat {
+  string id = 1;
+  int64 time = 2;
+}
+
+message Subscription {
+  bool subscribe = 1;
+  string id = 2;
+}
+
+message PluginPayload {
+  bytes payload = 1;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package dewars.plugin;
+
+enum PluginDomain {
+  client = 0;
+  server = 1;
+}
+
+message RegistrationData {
+  string id = 1;
+  string vendor = 2;
+  string name = 3;
+  string description = 4;
+  string version = 5;
+  string url = 6;
+  repeated PluginDomain domain = 7;
+}

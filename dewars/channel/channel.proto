@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package dewars.channel.v1;
+
+enum ErrorType {
+  DUPLICATE_CONNECTION = 0;
+}
+
+message Error {
+  ErrorType code = 1;
+  string message = 2;
+}
+
+message Channel {
+  string id = 1;
+  oneof payload {
+    bytes data = 2;
+    Error error = 3;
+  }
+  
+  
+}

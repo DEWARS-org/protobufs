@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package dewars.plugin.mosaic;
+
+import "google/protobuf/timestamp.proto";
+
+message Mosaic {
+  message Data {
+    string id = 1;
+    uint32 frequency = 2;
+    uint32 bandwidth = 3;
+    uint32 peak_power = 4;
+  }
+  message C2 {
+    string id = 1;
+    int32 update_rate = 2;
+  }
+  message TunerControll {
+    float frequency = 1;
+    float sample_rate = 2;
+    float gain = 3;
+  }
+  oneof payload {
+    Data data = 1;
+    C2 c2 = 2;
+    TunerControll tuner_controll = 3;
+  }
+}
