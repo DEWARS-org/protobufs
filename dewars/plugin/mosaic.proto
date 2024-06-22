@@ -5,24 +5,66 @@ package dewars.plugin.mosaic;
 import "google/protobuf/timestamp.proto";
 
 message Mosaic {
-  message Data {
-    string id = 1;
-    uint32 frequency = 2;
-    uint32 bandwidth = 3;
-    uint32 peak_power = 4;
+  message Signals {
+    message SRI {
+      string id = 1;
+      double frequency = 2;
+      double bandwidth = 3;
+      float peak_power = 4;
+    }
+
+    repeated SRI sri = 1;
   }
+
   message C2 {
     string id = 1;
-    int32 update_rate = 2;
+    uint32 update_rate = 2;
   }
-  message TunerControll {
-    float frequency = 1;
-    float sample_rate = 2;
-    float gain = 3;
+  message TaskQueue {
+    message Task {
+      message BandScan {
+        double start = 1;
+        double stop = 2;
+        double step = 3;
+      }
+
+      message TargetList {
+        repeated double targets = 1;
+      }
+
+      string id = 1;
+      uint32 priority = 2;
+      oneof task {
+        BandScan band_scan = 3;
+        TargetList target_list = 4;
+      }
+      optional uint64 start_time = 5;
+      optional uint64 stop_time = 6;
+      optional uint64 duration = 7;
+    }
+
+    message AddTask {
+      Task task = 1;
+    }
+
+    message RemoveTask {
+      string id = 1;
+    }
+
+    message TaskList {
+      repeated Task tasks = 1;
+    }
+
+    oneof action {
+      AddTask add_task = 1;
+      RemoveTask remove_task = 2;
+      bool list_tasks_request = 3;
+      TaskList list_tasks_response = 4;
+    }
   }
   oneof payload {
-    Data data = 1;
+    Signals signals = 1;
     C2 c2 = 2;
-    TunerControll tuner_controll = 3;
+    TaskQueue task_queue = 3;
   }
 }

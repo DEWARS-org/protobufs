@@ -1,0 +1,56 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:@bufbuild/buf@1.32.2": "npm:@bufbuild/buf@1.32.2",
+      "npm:@bufbuild/protobuf@^1.10.0": "npm:@bufbuild/protobuf@1.10.0"
+    },
+    "npm": {
+      "@bufbuild/buf-darwin-arm64@1.32.2": {
+        "integrity": "sha512-AR6WlhY6CmLlZetvYzLjbyVpU5jM4eDd3PRTUAK5NcpqIPdCMiMK9nc33Yxc8pO04Lv4yrYdzWnFqZdbCzsS2g==",
+        "dependencies": {}
+      },
+      "@bufbuild/buf-darwin-x64@1.32.2": {
+        "integrity": "sha512-ZmVYsMcS06KHZYy4DmKf95BnDWji5/xo42oybqjtlE/wPGKNpqgiq0UGHSlK0oCh67sybHidXVci6LC95xHNrw==",
+        "dependencies": {}
+      },
+      "@bufbuild/buf-linux-aarch64@1.32.2": {
+        "integrity": "sha512-OG509xwJHjuzSn5nNrVWghW/RpB76Ovhj7LCKi52QVh/qQq6VUXeQk42XIWjXY/Cmzmg81G7t97kLw27JLzH0w==",
+        "dependencies": {}
+      },
+      "@bufbuild/buf-linux-x64@1.32.2": {
+        "integrity": "sha512-TFNN87nhLyGFUKOy3beU/0GZk7TEs57J5VQczSq83rHLC+7t1nDuk5Rew8QEyV0OzEzZF+BkpLZj0jY+dWg6/g==",
+        "dependencies": {}
+      },
+      "@bufbuild/buf-win32-arm64@1.32.2": {
+        "integrity": "sha512-SsGUfILZblPNbCgG6W9DxzCdfHnT2YTYQEkCS877DL1wkWMlMJ/ijZA9Cg2fx8NrLKzFTKC1nlTfqRBcLPf2Mg==",
+        "dependencies": {}
+      },
+      "@bufbuild/buf-win32-x64@1.32.2": {
+        "integrity": "sha512-FXOHmXB0kxQ7nQ0JYWpByl6/ebkKwWPPjucOHIDcfo7czg5ZD/fRusb738YJ1qeN+5RXybkvhJIrewxVnhYuhg==",
+        "dependencies": {}
+      },
+      "@bufbuild/buf@1.32.2": {
+        "integrity": "sha512-WL2mpou8k9EBo2US0KyZhFSHrDmRZvv5ZMp7lywUFb+3lW1+E/OZnBaBYTrSAb9vfzSmwdRsSOJwKdDpfbjdSg==",
+        "dependencies": {
+          "@bufbuild/buf-darwin-arm64": "@bufbuild/buf-darwin-arm64@1.32.2",
+          "@bufbuild/buf-darwin-x64": "@bufbuild/buf-darwin-x64@1.32.2",
+          "@bufbuild/buf-linux-aarch64": "@bufbuild/buf-linux-aarch64@1.32.2",
+          "@bufbuild/buf-linux-x64": "@bufbuild/buf-linux-x64@1.32.2",
+          "@bufbuild/buf-win32-arm64": "@bufbuild/buf-win32-arm64@1.32.2",
+          "@bufbuild/buf-win32-x64": "@bufbuild/buf-win32-x64@1.32.2"
+        }
+      },
+      "@bufbuild/protobuf@1.10.0": {
+        "integrity": "sha512-QDdVFLoN93Zjg36NoQPZfsVH9tZew7wKDKyV5qRdj8ntT4wQCOradQjRaTdwMhWUYsgKsvCINKKm87FdEk96Ag==",
+        "dependencies": {}
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "dependencies": [
+      "npm:@bufbuild/protobuf@^1.10.0"
+    ]
+  }
+}

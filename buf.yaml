@@ -1,2 +1,3 @@
-version: v1
-name: dewars
+version: v2
+modules:
+  - path: dewars

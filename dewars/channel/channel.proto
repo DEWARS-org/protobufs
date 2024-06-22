@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package dewars.channel.v1;
+package dewars.channel;
 
 enum ErrorType {
   DUPLICATE_CONNECTION = 0;

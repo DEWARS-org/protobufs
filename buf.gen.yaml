@@ -2,7 +2,6 @@ version: v1
 plugins:
   - plugin: es
     opt: target=ts
-    out: src/generated
-  - plugin: connect-es
-    opt: target=ts
-    out: src/generated
+    out: generated/ts
+  - plugin: buf.build/community/neoeinstein-prost:v0.3.1
+    out: generated/rust

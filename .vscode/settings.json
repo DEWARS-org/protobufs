@@ -1,8 +1,8 @@
 {
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "biomejs.biome",
-	"editor.codeActionsOnSave": {
-		"source.fixAll": "explicit",
-		"source.organizeImports.biome": "explicit"
-	}
+  "deno.enable": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "denoland.vscode-deno",
+  "[proto]": {
+    "editor.defaultFormatter": "bufbuild.vscode-buf"
+  }
 }
