@@ -1,5 +1,5 @@
 syntax = "proto3";
-package dewars.channel.heartbeat;
+package dewars.service.heartbeat;
 
 message Heartbeat {
   string id = 1;

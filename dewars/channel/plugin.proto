@@ -1,6 +1,0 @@
-syntax = "proto3";
-package dewars.channel.plugin;
-
-message PluginPayload {
-  bytes payload = 1;
-}

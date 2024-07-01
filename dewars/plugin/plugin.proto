@@ -3,8 +3,8 @@ syntax = "proto3";
 package dewars.plugin;
 
 enum PluginDomain {
-  client = 0;
-  server = 1;
+  CLIENT = 0;
+  SERVER = 1;
 }
 
 message RegistrationData {

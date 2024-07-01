@@ -1,10 +1,13 @@
-// Channel
-export * as Channel from "./generated/ts/channel/channel_pb.ts";
-export * as HeartbeatChannel from "./generated/ts/channel/heartbeat_pb.ts";
-export * as PeeringChannel from "./generated/ts/channel/peering_pb.ts";
-export * as PluginChannel from "./generated/ts/channel/plugin_pb.ts";
-export * as SubscriptionChannel from "./generated/ts/channel/subscription_pb.ts";
-export * as SystemChannel from "./generated/ts/channel/system_pb.ts";
+// service
+export * as HeartbeatService from "./generated/ts/service/heartbeat_pb.ts";
+export * as PluginService from "./generated/ts/service/plugin_pb.ts";
+export * as SystemService from "./generated/ts/service/system_pb.ts";
+
+// Geocoder
+export * as Geocoder from "./generated/ts/geocoder/geocoder_pb.ts";
+
+// Peering
+export * as Peering from "./generated/ts/peering/peering_pb.ts";
 
 // Plugin
 export * as MosaicPlugin from "./generated/ts/plugin/mosaic_pb.ts";

@@ -1,7 +1,0 @@
-syntax = "proto3";
-package dewars.channel.subscription;
-
-message Subscription {
-  bool subscribe = 1;
-  string id = 2;
-}

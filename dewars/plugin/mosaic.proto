@@ -5,66 +5,112 @@ package dewars.plugin.mosaic;
 import "google/protobuf/timestamp.proto";
 
 message Mosaic {
-  message Signals {
-    message SRI {
-      string id = 1;
-      double frequency = 2;
-      double bandwidth = 3;
-      float peak_power = 4;
-    }
-
-    repeated SRI sri = 1;
-  }
-
-  message C2 {
-    string id = 1;
-    uint32 update_rate = 2;
-  }
-  message TaskQueue {
-    message Task {
-      message BandScan {
-        double start = 1;
-        double stop = 2;
-        double step = 3;
+  message Payload {
+    message Signals {
+      message SRI {
+        double frequency = 2;
+        double bandwidth = 3;
+        float peak_power = 4;
+        uint64 timestamp = 5;
       }
 
-      message TargetList {
-        repeated double targets = 1;
+      message SRIWithPosition {
+        SRI sri = 1;
+        string sensor_id = 2;
+        double latitude = 3;
+        double longitude = 4;
       }
 
-      string id = 1;
-      uint32 priority = 2;
-      oneof task {
-        BandScan band_scan = 3;
-        TargetList target_list = 4;
+      message SRIValues {
+        repeated SRI sri = 1;
       }
-      optional uint64 start_time = 5;
-      optional uint64 stop_time = 6;
-      optional uint64 duration = 7;
+
+      message SRIValuesWithPosition {
+        repeated SRIWithPosition sri_with_position = 1;
+      }
+
+      oneof signal {
+        SRIValues sri_values = 1;
+        SRIValuesWithPosition sri_values_with_position = 2;
+      }
     }
 
-    message AddTask {
-      Task task = 1;
+    message C2 {
+      message RecieverProperties {
+        double gain = 1;
+        double sample_rate = 2;
+        double detection_threshold = 3;
+        double spectral_averaging = 4;
+        double gaussian_kernel_size = 5;
+      }
+
+      message AggregatorProperties {
+        string id = 1;
+        uint32 update_rate = 2;
+      }
+
+      oneof action {
+        RecieverProperties set_reciever_properties = 1;
+        bool get_reciever_properties_request = 2;
+        RecieverProperties get_reciever_properties_response = 3;
+        AggregatorProperties set_aggregator_properties = 4;
+        bool get_aggregator_properties_request = 5;
+        AggregatorProperties get_aggregator_properties_response = 6;
+      }
     }
 
-    message RemoveTask {
-      string id = 1;
+    message TaskQueue {
+      message Task {
+        message BandScan {
+          double start = 1;
+          double stop = 2;
+          double step = 3;
+        }
+
+        message TargetList {
+          repeated double targets = 1;
+        }
+
+        string id = 1;
+        uint32 priority = 2;
+        oneof task {
+          BandScan band_scan = 3;
+          TargetList target_list = 4;
+        }
+        optional uint64 start_time = 5;
+        optional uint64 stop_time = 6;
+        optional uint64 duration = 7;
+      }
+
+      message SetTasks {
+        repeated Task tasks = 1;
+      }
+
+      message TaskList {
+        repeated Task tasks = 1;
+      }
+
+      oneof action {
+        SetTasks set_tasks = 1;
+        bool get_tasks_request = 2;
+        TaskList get_tasks_response = 3;
+      }
     }
 
-    message TaskList {
-      repeated Task tasks = 1;
-    }
-
-    oneof action {
-      AddTask add_task = 1;
-      RemoveTask remove_task = 2;
-      bool list_tasks_request = 3;
-      TaskList list_tasks_response = 4;
+    oneof payload {
+      Signals signals = 1;
+      C2 c2 = 2;
+      TaskQueue task_queue = 3;
     }
   }
-  oneof payload {
-    Signals signals = 1;
-    C2 c2 = 2;
-    TaskQueue task_queue = 3;
+
+  message Error {
+    uint32 code = 1;
+    optional string message = 2;
+  }
+
+  oneof data {
+    Payload payload = 1;
+    Error error = 2;
   }
 }

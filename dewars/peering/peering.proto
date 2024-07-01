@@ -1,0 +1,76 @@
+syntax = "proto3";
+package dewars.peering;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+// Internal
+message Peer {
+  enum ConnectionState {
+    CONNECTED = 0;
+    DISCONNECTED = 1;
+  }
+
+  string id = 1;
+  string address = 2;
+  uint32 port = 3;
+  ConnectionState state = 4;
+  optional google.protobuf.Timestamp last_heard = 5;
+}
+
+message Peers {
+  repeated Peer peers = 1;
+}
+
+message Add {
+  string address = 1;
+  uint32 port = 2;
+}
+
+message Remove {
+  string id = 1;
+}
+
+message Event {
+  message Generic {
+    string id = 1;
+  }
+
+  message Added {
+    Peer peer = 1;
+  }
+
+  message LastHeard {
+    string id = 1;
+    google.protobuf.Timestamp timestamp = 2;
+  }
+
+  oneof event {
+    Generic connected = 1;
+    Generic disconnected = 2;
+    Added added = 3;
+    Generic removed = 4;
+    LastHeard last_heard = 5;
+  }
+}
+
+// External
+message PacketHistory {
+  string node_id = 1;
+  google.protobuf.Timestamp timestamp = 2;
+}
+
+message RoutedData {
+  string id = 1;
+  repeated PacketHistory history = 2;
+  oneof data {
+    bytes raw = 3;
+    Probe probe = 4;
+  }
+}
+
+message Probe {
+  string id = 1;
+  string address = 2;
+  uint32 port = 3;
+}

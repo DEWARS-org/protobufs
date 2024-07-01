@@ -1,5 +1,5 @@
 syntax = "proto3";
-package dewars.channel.system;
+package dewars.service.system;
 
 enum Classification {
   UNOFFICIAL = 0;

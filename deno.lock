@@ -3,6 +3,7 @@
   "packages": {
     "specifiers": {
       "npm:@bufbuild/buf@1.32.2": "npm:@bufbuild/buf@1.32.2",
+      "npm:@bufbuild/buf@1.34.0": "npm:@bufbuild/buf@1.34.0",
       "npm:@bufbuild/protobuf@^1.10.0": "npm:@bufbuild/protobuf@1.10.0"
     },
     "npm": {
@@ -10,24 +11,48 @@
         "integrity": "sha512-AR6WlhY6CmLlZetvYzLjbyVpU5jM4eDd3PRTUAK5NcpqIPdCMiMK9nc33Yxc8pO04Lv4yrYdzWnFqZdbCzsS2g==",
         "dependencies": {}
       },
+      "@bufbuild/buf-darwin-arm64@1.34.0": {
+        "integrity": "sha512-3+h/jSAr7H+KT8MWWRMbN/gQ87KlGLkTGwm4/mpry1ap9Thw/UdOrk5MfmbK3CRM/rlw4mAn1Egu/Q7R5eO98g==",
+        "dependencies": {}
+      },
       "@bufbuild/buf-darwin-x64@1.32.2": {
         "integrity": "sha512-ZmVYsMcS06KHZYy4DmKf95BnDWji5/xo42oybqjtlE/wPGKNpqgiq0UGHSlK0oCh67sybHidXVci6LC95xHNrw==",
+        "dependencies": {}
+      },
+      "@bufbuild/buf-darwin-x64@1.34.0": {
+        "integrity": "sha512-Jdm0COuA2CMKoef2H8rBsRnc16mJUmCQ2KvJH5otvFrMhzPmr1MUyicCybY26HXFD/6DcnbWZvf6W8LfDMMyGQ==",
         "dependencies": {}
       },
       "@bufbuild/buf-linux-aarch64@1.32.2": {
         "integrity": "sha512-OG509xwJHjuzSn5nNrVWghW/RpB76Ovhj7LCKi52QVh/qQq6VUXeQk42XIWjXY/Cmzmg81G7t97kLw27JLzH0w==",
         "dependencies": {}
       },
+      "@bufbuild/buf-linux-aarch64@1.34.0": {
+        "integrity": "sha512-utSspJlPmVPh4Ugvn9k7MEEMHDZMI13jvwHkBE6wNSkYxxYTRR5zLHtmysaYQo51Fx+3ar6mL4HnhTqLrgO5GA==",
+        "dependencies": {}
+      },
       "@bufbuild/buf-linux-x64@1.32.2": {
         "integrity": "sha512-TFNN87nhLyGFUKOy3beU/0GZk7TEs57J5VQczSq83rHLC+7t1nDuk5Rew8QEyV0OzEzZF+BkpLZj0jY+dWg6/g==",
+        "dependencies": {}
+      },
+      "@bufbuild/buf-linux-x64@1.34.0": {
+        "integrity": "sha512-INCGsPLBL4aK2jHBMdZzEJUPv7f6f8skIUMMip7YdJl1nsIh27C/Dl7Q6A6/sv9IhYibWKAoxP7SuiOv2iTdEw==",
         "dependencies": {}
       },
       "@bufbuild/buf-win32-arm64@1.32.2": {
         "integrity": "sha512-SsGUfILZblPNbCgG6W9DxzCdfHnT2YTYQEkCS877DL1wkWMlMJ/ijZA9Cg2fx8NrLKzFTKC1nlTfqRBcLPf2Mg==",
         "dependencies": {}
       },
+      "@bufbuild/buf-win32-arm64@1.34.0": {
+        "integrity": "sha512-g1EogebjJ93bzmyn/fEi47tTz57M+7WYZ7/vX+DFXgLLYIxTWHDK4YN+3Hs+K7Sbx7KaVdsdEqof8xZ4WoVFnQ==",
+        "dependencies": {}
+      },
       "@bufbuild/buf-win32-x64@1.32.2": {
         "integrity": "sha512-FXOHmXB0kxQ7nQ0JYWpByl6/ebkKwWPPjucOHIDcfo7czg5ZD/fRusb738YJ1qeN+5RXybkvhJIrewxVnhYuhg==",
+        "dependencies": {}
+      },
+      "@bufbuild/buf-win32-x64@1.34.0": {
+        "integrity": "sha512-0rPXP7pV7+2twhcpN8hDdgV68UCiazLRcMBjWKubwcSJhAP8jRLqSJv3VGnXmpdYPbYGDQ0htfcgLNUvzllRhQ==",
         "dependencies": {}
       },
       "@bufbuild/buf@1.32.2": {
@@ -39,6 +64,17 @@
           "@bufbuild/buf-linux-x64": "@bufbuild/buf-linux-x64@1.32.2",
           "@bufbuild/buf-win32-arm64": "@bufbuild/buf-win32-arm64@1.32.2",
           "@bufbuild/buf-win32-x64": "@bufbuild/buf-win32-x64@1.32.2"
+        }
+      },
+      "@bufbuild/buf@1.34.0": {
+        "integrity": "sha512-DR0P746bYiY7ziQTui0bKAvPa7ihCNxONWLtW54HQXvTkGnTc6C1keVaSz4UhNdSsBu/Xsj69GO9SizodfjUtQ==",
+        "dependencies": {
+          "@bufbuild/buf-darwin-arm64": "@bufbuild/buf-darwin-arm64@1.34.0",
+          "@bufbuild/buf-darwin-x64": "@bufbuild/buf-darwin-x64@1.34.0",
+          "@bufbuild/buf-linux-aarch64": "@bufbuild/buf-linux-aarch64@1.34.0",
+          "@bufbuild/buf-linux-x64": "@bufbuild/buf-linux-x64@1.34.0",
+          "@bufbuild/buf-win32-arm64": "@bufbuild/buf-win32-arm64@1.34.0",
+          "@bufbuild/buf-win32-x64": "@bufbuild/buf-win32-x64@1.34.0"
         }
       },
       "@bufbuild/protobuf@1.10.0": {

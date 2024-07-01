@@ -1,3 +1,4 @@
 version: v2
 modules:
   - path: dewars
+    name: buf.build/dewars/protobufs

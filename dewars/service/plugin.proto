@@ -1,0 +1,35 @@
+syntax = "proto3";
+package dewars.service.plugin;
+
+// import "plugin/plugin.proto";
+
+// REMOVE
+enum PluginDomain {
+  CLIENT = 0;
+  SERVER = 1;
+}
+
+message RegistrationData {
+  string id = 1;
+  string vendor = 2;
+  string name = 3;
+  string description = 4;
+  string version = 5;
+  string url = 6;
+  repeated PluginDomain domain = 7;
+}
+// END REMOVE
+
+message PluginPayload {
+  bytes payload = 1;
+}
+
+message PluginInfo {
+  string name = 1;
+  uint32 size = 2;
+  RegistrationData registration_data = 3;
+}
+
+message PluginList {
+  repeated PluginInfo plugins = 1;
+}
