@@ -1,6 +1,6 @@
 {
   "name": "@dewars/protobufs",
-  "version": "0.2.41",
+  "version": "0.2.50",
   "description": "",
   "exports": {
     ".": "./mod.ts"

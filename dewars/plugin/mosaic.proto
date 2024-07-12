@@ -16,9 +16,7 @@ message Mosaic {
 
       message SRIWithPosition {
         SRI sri = 1;
-        string sensor_id = 2;
-        double latitude = 3;
-        double longitude = 4;
+        Position position = 2;
       }
 
       message SRIValues {
@@ -37,16 +35,20 @@ message Mosaic {
 
     message C2 {
       message RecieverProperties {
-        double gain = 1;
-        double sample_rate = 2;
-        double detection_threshold = 3;
-        double spectral_averaging = 4;
-        double gaussian_kernel_size = 5;
+        optional double frequency = 1;
+        float gain = 2;
+        double sample_rate = 3;
+        float detection_threshold = 4;
+        uint32 spectral_averaging = 5;
+        float gaussian_kernel_sigma = 6;
+        uint32 fft_size = 7;
+        double min_detection_spacing = 8;
       }
 
       message AggregatorProperties {
-        string id = 1;
         uint32 update_rate = 2;
+        uint32 position_broadcast_interval = 3;
+        uint32 position_min_difference = 4;
       }
 
       oneof action {
@@ -97,10 +99,17 @@ message Mosaic {
       }
     }
 
+    message Position {
+        double latitude = 1;
+        double longitude = 2;
+        double altitude = 3;
+    }
+
     oneof payload {
       Signals signals = 1;
       C2 c2 = 2;
       TaskQueue task_queue = 3;
+      Position sensor_position = 4;
     }
   }
 
@@ -109,8 +118,10 @@ message Mosaic {
     optional string message = 2;
   }
 
+  string sensor_id = 1;
+
   oneof data {
-    Payload payload = 1;
-    Error error = 2;
+    Payload payload = 2;
+    Error error = 3;
   }
 }
