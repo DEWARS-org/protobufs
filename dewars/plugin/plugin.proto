@@ -2,17 +2,128 @@ syntax = "proto3";
 
 package dewars.plugin;
 
-enum PluginDomain {
-  CLIENT = 0;
-  SERVER = 1;
-}
+import "service/geodata.proto";
+import "service/plugin.proto";
 
 message RegistrationData {
+    message UI {
+        message Form {
+            message InputField {
+                message Validation {
+                    bool required = 1;
+                    string pattern = 2;
+                }
+
+                string placeholder = 1;
+                Validation validation = 2;
+            }
+
+            message SelectField {
+                message Option {
+                    string value = 1;
+                    string label = 2;
+                }
+
+                message Validation {
+                    bool required = 1;
+                }
+
+                repeated Option options = 1;
+                Validation validation = 2;
+            }
+
+            message CheckboxField {
+                message Validation {
+                    bool required = 1;
+                }
+
+                Validation validation = 1;
+            }
+
+            message RadioField {
+                message Option {
+                    string value = 1;
+                    string label = 2;
+                }
+
+                message Validation {
+                    bool required = 1;
+                }
+
+                repeated Option options = 1;
+                Validation validation = 2;
+
+            }
+
+            message TextareaField {
+                message Validation {
+                    bool required = 1;
+                    string pattern = 2;
+                }
+
+                Validation validation = 1;
+
+            }
+
+            message ToggleField {
+                message Validation {
+                    bool required = 1;
+                }
+
+                Validation validation = 1;
+
+            }
+
+            message Field {
+                string id = 1;
+                string label = 2;
+                string description = 3;
+
+                oneof fieldSettings {
+                    InputField input = 4;
+                    SelectField select = 5;
+                    CheckboxField checkbox = 6;
+                    RadioField radio = 7;
+                    TextareaField textarea = 8;
+                    ToggleField toggle = 9;
+                }
+            }
+
+            repeated Field fields = 1;
+        }
+
+
+
+        message Tab {
+            string id = 1;
+            string label = 2;
+
+            message Section {
+                string id = 1;
+                string label = 2;
+                repeated Form.Field fields = 3;
+            }
+        }
+    }
+
   string id = 1;
   string vendor = 2;
   string name = 3;
-  string description = 4;
-  string version = 5;
-  string url = 6;
-  repeated PluginDomain domain = 7;
+  string icon = 4;
+  string description = 5;
+  string version = 6;
+  string url = 7;
+  repeated dewars.service.plugin.PluginInfo.PluginDomain domain = 8;
+  UI ui = 9;
+}
+
+// Data format for packets from the plugin to the server, used to propogate data to one of the avaliable server api's
+// Examples include sending geo-features with associated plugin specific attributes
+// or sending list of sensors and statuses to the server populating well-known fields such as sensor name, latency, and other non-well-known tabular data
+// The packet is comprised of several high level messages in a oneof, with some common fields shared between all messages
+message Packet {
+
+    oneof data {
+        dewars.service.geodata.Feature geoFeature = 1;
+    }
 }

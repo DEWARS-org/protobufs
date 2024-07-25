@@ -1,4 +1,5 @@
 // service
+export * as GeoDataService from "./generated/ts/service/geodata_pb.ts";
 export * as HeartbeatService from "./generated/ts/service/heartbeat_pb.ts";
 export * as PluginService from "./generated/ts/service/plugin_pb.ts";
 export * as SystemService from "./generated/ts/service/system_pb.ts";

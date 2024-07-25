@@ -1,6 +1,6 @@
 {
   "name": "@dewars/protobufs",
-  "version": "0.2.50",
+  "version": "0.2.57",
   "description": "",
   "exports": {
     ".": "./mod.ts"
@@ -9,12 +9,18 @@
     "@bufbuild/protobuf": "npm:@bufbuild/protobuf@^1.10.0"
   },
   "publish": {
-    "exclude": [".github", ".vscode", "dewars", "!generated/ts"]
+    "exclude": [
+      ".github",
+      ".vscode",
+      "dewars",
+      "!generated/ts"
+    ]
   },
   "tasks": {
     "install": "deno install npm:@bufbuild/protoc-gen-es --name protoc-gen-es",
     "clean": "rm -R generated",
     "generate": "deno run -A npm:@bufbuild/buf@1.34.0/buf generate dewars",
-    "publish": "deno publish --allow-slow-types --allow-dirty"
+    "publish": "deno publish --allow-slow-types --allow-dirty",
+    "fix_imports": "sed -i 's/\\.js\"/\\.ts\"/g' generated/ts/plugin/*.ts"
   }
 }

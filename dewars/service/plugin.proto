@@ -1,35 +1,34 @@
 syntax = "proto3";
 package dewars.service.plugin;
 
-// import "plugin/plugin.proto";
-
-// REMOVE
-enum PluginDomain {
-  CLIENT = 0;
-  SERVER = 1;
-}
-
-message RegistrationData {
-  string id = 1;
-  string vendor = 2;
-  string name = 3;
-  string description = 4;
-  string version = 5;
-  string url = 6;
-  repeated PluginDomain domain = 7;
-}
-// END REMOVE
-
-message PluginPayload {
-  bytes payload = 1;
-}
 
 message PluginInfo {
-  string name = 1;
-  uint32 size = 2;
-  RegistrationData registration_data = 3;
+    enum PluginDomain {
+        CLIENT = 0;
+        SERVER = 1;
+    }
+
+    string id = 1;
+    string version = 6;
+  repeated PluginDomain domain = 8;
 }
 
 message PluginList {
   repeated PluginInfo plugins = 1;
+}
+
+message PluginPayloadRequest {
+    string id = 1;
+}
+
+message PluginPayloadResponse {
+  bytes payload = 1;
+}
+
+/**
+ * Data emitted by external services that should be routed to the specified plugin.
+ */
+message RoutedPacket {
+  string id = 1;
+  bytes payload = 2;
 }

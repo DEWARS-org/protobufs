@@ -1,0 +1,51 @@
+syntax = "proto3";
+package dewars.service.geodata;
+
+message Feature {
+    message Point {
+        double lat = 1;
+        double lon = 2;
+    }
+
+    message LineString {
+        repeated Point points = 1;
+    }
+
+    message Polygon {
+        repeated Point points = 1;
+    }
+
+    message MultiPoint {
+        repeated Point points = 1;
+    }
+
+    message MultiLineString {
+        repeated LineString lines = 1;
+    }
+
+    message MultiPolygon {
+        repeated Polygon polygons = 1;
+    }
+
+    oneof geometry {
+        Point point = 1;
+        LineString line = 2;
+        Polygon polygon = 3;
+        MultiPoint multiPoint = 4;
+        MultiLineString multiLine = 5;
+        MultiPolygon multiPolygon = 6;
+    }
+
+    message WellKnownAttributes {
+        optional string sensor_id = 1;
+    }
+
+    WellKnownAttributes well_known_attributes = 7;
+    map<string, string> attributes = 8;
+}
+
+
+
+message GeoData {
+    repeated Feature features = 1;
+}

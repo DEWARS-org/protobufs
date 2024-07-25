@@ -114,7 +114,20 @@ message Mosaic {
   }
 
   message Error {
-    uint32 code = 1;
+    enum ErrorCode {
+        UNKNOWN = 0;
+        FREQUENCY = 1;
+        STEP = 2;
+        GAIN = 3;
+        SAMPLE_RATE = 4;
+        SPECTRAL_AVERAGING = 5;
+        KERNEL_SIGMA = 6;
+        FFT_SIZE = 7;
+        DETECTION_SPACING = 8;
+        TARGET_LIST = 9;
+    }
+
+    ErrorCode code = 1;
     optional string message = 2;
   }
 
