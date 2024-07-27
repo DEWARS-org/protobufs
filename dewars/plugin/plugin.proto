@@ -106,6 +106,17 @@ message RegistrationData {
         }
     }
 
+    message Dataset {
+        enum VisualizationType {
+            Aggregated = 0;
+            Individual = 1;
+        }
+        string id = 1;
+        string name = 2;
+        string description = 3;
+        VisualizationType visualizationType = 4;
+    }
+
   string id = 1;
   string vendor = 2;
   string name = 3;
@@ -115,6 +126,7 @@ message RegistrationData {
   string url = 7;
   repeated dewars.service.plugin.PluginInfo.PluginDomain domain = 8;
   UI ui = 9;
+  repeated Dataset datasets = 10;
 }
 
 // Data format for packets from the plugin to the server, used to propogate data to one of the avaliable server api's
@@ -123,7 +135,13 @@ message RegistrationData {
 // The packet is comprised of several high level messages in a oneof, with some common fields shared between all messages
 message Packet {
 
+    message Error {
+        string code = 1;
+        string message = 2;
+    }
+
     oneof data {
         dewars.service.geodata.Feature geoFeature = 1;
+        Error error = 2;
     }
 }
