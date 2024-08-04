@@ -3,6 +3,7 @@ syntax = "proto3";
 package dewars.plugin.mosaic;
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
 
 message Mosaic {
   message Payload {
@@ -11,7 +12,7 @@ message Mosaic {
         double frequency = 2;
         double bandwidth = 3;
         float peak_power = 4;
-        uint64 timestamp = 5;
+        google.protobuf.Timestamp timestamp = 5;
       }
 
       message SRIWithPosition {

@@ -4,6 +4,25 @@ package dewars.service.geodata;
 import "google/protobuf/timestamp.proto";
 
 message Dataset {
+    message Attributes {
+        enum Type {
+            STRING = 0;
+            INT = 1;
+            FLOAT = 2;
+            BOOL = 3;
+            TIMESTAMP = 4;
+        }
+
+        message Attribute {
+            string name = 1;
+            string description = 2;
+            Type type = 3;
+            string unit = 4;
+        }
+
+        repeated Attribute attributes = 1;
+    }
+
     enum VisualizationType {
         Aggregated = 0;
         Individual = 1;
@@ -12,6 +31,7 @@ message Dataset {
     string name = 2;
     string description = 3;
     VisualizationType visualizationType = 4;
+    optional Attributes attributes = 5;
 }
 
 message Feature {

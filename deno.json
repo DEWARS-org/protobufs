@@ -1,6 +1,6 @@
 {
   "name": "@dewars/protobufs",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "",
   "exports": {
     ".": "./mod.ts"
@@ -20,6 +20,6 @@
     "install": "deno install -f npm:@bufbuild/protoc-gen-es@2.0.0 --name protoc-gen-es",
     "clean": "rm -R generated",
     "generate": "deno run -A npm:@bufbuild/buf@1.35.1/buf generate dewars",
-    "publish": "deno publish --allow-slow-types --allow-dirty"
+    "publish": "deno publish --unstable-sloppy-imports --allow-slow-types --allow-dirty"
   }
 }
