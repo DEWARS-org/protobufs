@@ -114,10 +114,5 @@
       }
     }
   },
-  "remote": {},
-  "workspace": {
-    "dependencies": [
-      "npm:@bufbuild/protobuf@^2.0.0"
-    ]
-  }
+  "remote": {}
 }

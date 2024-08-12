@@ -1,0 +1,20 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:@bufbuild/protobuf@^2.0.0": "npm:@bufbuild/protobuf@2.0.0"
+    },
+    "npm": {
+      "@bufbuild/protobuf@2.0.0": {
+        "integrity": "sha512-sw2JhwJyvyL0zlhG61aDzOVryEfJg2PDZFSV7i7IdC7nAE41WuXCru3QWLGiP87At0BMzKOoKO/FqEGoKygGZQ==",
+        "dependencies": {}
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "dependencies": [
+      "npm:@bufbuild/protobuf@^2.0.0"
+    ]
+  }
+}

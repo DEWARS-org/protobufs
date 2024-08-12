@@ -1,1 +1,3 @@
-generated
+packages/ts/lib/*
+packages/rust/lib/*
+!.gitkeep

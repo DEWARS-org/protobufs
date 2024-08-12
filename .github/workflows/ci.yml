@@ -5,50 +5,50 @@ on: push
 permissions: write-all
 
 jobs:
-  quality:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
-        with:
-          version: latest
-
-      - name: Run Biome
-        run: biome ci .
-  publish:
+  codegen:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code & submodules
         uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
         with:
-          version: latest
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+          deno-version: v1.x
+      - name: install dependencies
+        run: deno task install
+      - name: Generate code
+        run: deno task generate
+      - name: Copy license
+        run: cp LICENSE packages/ts && cp LICENSE packages/rust
+      - name: Upload Rust code
+        uses: actions/upload-artifact@v4
         with:
-          node-version: 'latest'
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+          name: rust-code
+          path: packages/rust
+      - name: Upload TypeScript code
+        uses: actions/upload-artifact@v4
         with:
-          node-version: 'latest'
+          name: ts-code
 
-      - name: Install Dependencies
-        run: pnpm install
-
-      - name: Build Package
-        run: pnpm run build
-
-      - name: "Publish to NPM"
-        uses: JS-DevTools/npm-publish@v3
+  publish-jsr:
+    runs-on: ubuntu-latest
+    needs: codegen
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Download TypeScript code
+        uses: actions/download-artifact@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          registry: "https://npm.pkg.github.com"
+          name: ts-code
+      - name: Publish to JSR
+        run: npx jsr publish
+
+  publish-cargo:
+    runs-on: ubuntu-latest
+    needs: codegen
+    steps:
+      - name: Download Rust code
+        uses: actions/download-artifact@v4
+        with:
+          name: rust-code

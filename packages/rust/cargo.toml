@@ -1,0 +1,12 @@
+[package]
+name = "dewars_protobufs"
+version = "0.1.0"
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+]
+
+
+[dependencies]
+prost = "0.12.6"
+prost-types = "0.12.6"

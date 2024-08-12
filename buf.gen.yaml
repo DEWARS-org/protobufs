@@ -2,6 +2,6 @@ version: v1
 plugins:
   - plugin: es
     opt: target=ts
-    out: generated/ts
+    out: packages/ts/lib
   - plugin: buf.build/community/neoeinstein-prost:v0.3.1
-    out: generated/rust
+    out: packages/rust/lib
