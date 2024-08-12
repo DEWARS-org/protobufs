@@ -1,7 +1,7 @@
 {
   "tasks": {
     "install": "deno install -f npm:@bufbuild/protoc-gen-es@2.0.0 --name protoc-gen-es",
-    "generate": "deno run -A npm:@bufbuild/buf@1.35.1/buf generate dewars",
+    "generate": "deno run -A npm:@bufbuild/buf@1.36.0/buf generate dewars",
     "publish": "deno publish --unstable-sloppy-imports --allow-slow-types --allow-dirty"
   }
 }

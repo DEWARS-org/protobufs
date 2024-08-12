@@ -10,14 +10,10 @@ jobs:
     steps:
       - name: Checkout code & submodules
         uses: actions/checkout@v4
-      - name: Setup Deno
-        uses: denoland/setup-deno@v1
-        with:
-          deno-version: v1.x
-      - name: install dependencies
-        run: deno task install
+      - name: Setup Buf
+        uses: bufbuild/buf-setup-action@main
       - name: Generate code
-        run: deno task generate
+        run: buf generate dewars
       - name: Copy license
         run: cp LICENSE packages/ts && cp LICENSE packages/rust
       - name: Upload Rust code
