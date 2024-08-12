@@ -23,12 +23,12 @@ jobs:
       - name: Upload Rust code
         uses: actions/upload-artifact@v4
         with:
-          name: rust-code
+          name: rust_code
           path: packages/rust
       - name: Upload TypeScript code
         uses: actions/upload-artifact@v4
         with:
-          name: ts-code
+          name: ts_code
 
   publish-jsr:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
       - name: Download TypeScript code
         uses: actions/download-artifact@v4
         with:
-          name: ts-code
+          name: ts_code
       - name: Publish to JSR
         run: npx jsr publish
 
@@ -51,4 +51,4 @@ jobs:
       - name: Download Rust code
         uses: actions/download-artifact@v4
         with:
-          name: rust-code
+          name: rust_code
