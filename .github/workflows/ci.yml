@@ -13,7 +13,7 @@ jobs:
       - name: Setup Buf
         uses: bufbuild/buf-setup-action@main
       - name: install protoc-gen-es
-        run: npm install -g protoc-gen-es
+        run: npm install -g @bufbuild/protoc-gen-es
       - name: Generate code
         run: buf generate dewars
       - name: Copy license
