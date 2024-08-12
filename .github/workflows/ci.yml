@@ -39,7 +39,7 @@ jobs:
         with:
           name: ts_code
       - name: Publish to JSR
-        run: npx jsr publish
+        run: npx jsr publish --unstable-sloppy-imports
 
   publish-cargo:
     runs-on: ubuntu-latest
