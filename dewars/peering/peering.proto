@@ -22,13 +22,9 @@ message Peers {
   repeated Peer peers = 1;
 }
 
-message Add {
+message PeerIdentifier {
   string address = 1;
   uint32 port = 2;
-}
-
-message Remove {
-  string id = 1;
 }
 
 message Event {
