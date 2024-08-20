@@ -70,16 +70,14 @@ message Feature {
     }
 
     message WellKnownAttributes {
-        optional string dataset_id = 1;
-        optional string sensor_id = 2;
-        optional google.protobuf.Timestamp timestamp = 3;
+        string dataset = 1;
+        string collector = 2;
+        google.protobuf.Timestamp timestamp = 3;
     }
 
     WellKnownAttributes well_known_attributes = 7;
     map<string, string> attributes = 8;
 }
-
-
 
 message GeoData {
     repeated Feature features = 1;
