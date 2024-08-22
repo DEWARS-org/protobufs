@@ -5,30 +5,40 @@ package dewars.plugin.mosaic;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 
-message Attribute {
-    string id = 1;
-    string type = 2;
-    string short_title = 3;
-    Mosaic data = 4;
-}
+message Group {
+    message Block {
+        enum Status {
+            ONLINE = 0;
+            OFFLINE = 1;
+            ERROR = 2;
+            WARNING = 3;
+            UNKNOWN = 4;
+        }
 
-message Block {
-    enum Status {
-        ONLINE = 0;
-        OFFLINE = 1;
-        ERROR = 2;
-        WARNING = 3;
-        UNKNOWN = 4;
+        string id = 1;
+        string name = 2;
+        repeated Attribute attributes = 3;
+        Status status = 4;
+        google.protobuf.Timestamp last_heard = 5;
+        google.protobuf.Timestamp last_pushed = 6;
+        repeated float position = 7;
+    }
+
+    message Attribute {
+        string id = 1;
+        string type = 2;
+        string short_title = 3;
+        Mosaic data = 4;
     }
 
     string id = 1;
     string name = 2;
-    repeated Attribute attributes = 3;
-    Status status = 4;
-    google.protobuf.Timestamp last_heard = 5;
-    google.protobuf.Timestamp last_pushed = 6;
-    repeated float position = 7;
+    repeated Block blocks = 3;
+    repeated Attribute attributes = 4;
+    bool sync_lock = 5;
 }
+
+
 
 message Mosaic {
   message Payload {
