@@ -25,7 +25,7 @@ message Block {
     string name = 2;
     repeated Attribute attributes = 3;
     Status statu = 4;
-    google.protobuf.Timestamp lat_heard = 5;
+    google.protobuf.Timestamp last_heard = 5;
     google.protobuf.Timestamp last_pushed = 6;
     repeated uint32 position = 7;
 }
