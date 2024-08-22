@@ -26,9 +26,10 @@ message PluginPayloadResponse {
 }
 
 /**
- * Data emitted by external services that should be routed to the specified plugin.
+ * Data to be routed between external devices and plugins.
  */
 message RoutedPacket {
-  string id = 1;
-  bytes payload = 2;
+  string plugin_id = 1;
+  optional string device_id = 2;
+  bytes payload = 3;
 }

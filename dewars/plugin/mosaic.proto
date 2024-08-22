@@ -5,6 +5,31 @@ package dewars.plugin.mosaic;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 
+message Attribute {
+    string id = 1;
+    string type = 2;
+    string short_title = 3;
+    Mosaic data = 3;
+}
+
+message Block {
+    enum Status {
+        ONLINE = 0;
+        OFFLINE = 1;
+        ERROR = 2;
+        WARNING = 3;
+        UNKNOWN = 4;
+    }
+
+    string id = 1;
+    string content = 2;
+    repeated Attribute attributes = 3;
+    Status statu = 4;
+    google.protobuf.Timestamp lat_heard = 5;
+    google.protobuf.Timestamp last_pushed = 6;
+    repeated uint32 position = 7;
+}
+
 message Mosaic {
   message Payload {
     message Signals {
