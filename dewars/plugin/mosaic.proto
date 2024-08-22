@@ -27,7 +27,7 @@ message Block {
     Status status = 4;
     google.protobuf.Timestamp last_heard = 5;
     google.protobuf.Timestamp last_pushed = 6;
-    repeated uint32 position = 7;
+    repeated float position = 7;
 }
 
 message Mosaic {
