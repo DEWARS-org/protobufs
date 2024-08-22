@@ -9,7 +9,7 @@ message Attribute {
     string id = 1;
     string type = 2;
     string short_title = 3;
-    Mosaic data = 3;
+    Mosaic data = 4;
 }
 
 message Block {
