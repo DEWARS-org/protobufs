@@ -22,7 +22,7 @@ message Block {
     }
 
     string id = 1;
-    string content = 2;
+    string name = 2;
     repeated Attribute attributes = 3;
     Status statu = 4;
     google.protobuf.Timestamp lat_heard = 5;
