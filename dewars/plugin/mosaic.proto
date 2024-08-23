@@ -5,6 +5,20 @@ package dewars.plugin.mosaic;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 
+message Error {
+    enum Type {
+        ERROR = 0;
+        WARNING = 1;
+    }
+
+    string id = 1;
+    string block_id = 2;
+    Type type = 3;
+    string short_title = 4;
+    string description = 5;
+    google.protobuf.Timestamp timestamp = 6;
+}
+
 message Group {
     message Block {
         enum Status {
