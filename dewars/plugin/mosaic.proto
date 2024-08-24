@@ -5,6 +5,14 @@ package dewars.plugin.mosaic;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 
+message Errors {
+    repeated Error errors = 1;
+}
+
+message Attributes {
+    repeated Group.Attribute attributes = 1;
+}
+
 message Error {
     enum Type {
         ERROR = 0;
