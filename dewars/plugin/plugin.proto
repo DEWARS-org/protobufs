@@ -7,11 +7,12 @@ import "service/plugin.proto";
 
 message KVEntry {
     string key = 1;
-    bytes value = 2;
+    optional bytes value = 2;
 }
 
 message KVStore {
-    repeated string keys = 1;
+    string store = 1;
+    repeated string keys = 2;
 }
 
 message RegistrationData {
