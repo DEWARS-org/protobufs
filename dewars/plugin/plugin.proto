@@ -10,6 +10,10 @@ message KVEntry {
     bytes value = 2;
 }
 
+message KVStore {
+    repeated string keys = 1;
+}
+
 message RegistrationData {
     message UI {
         message Form {
