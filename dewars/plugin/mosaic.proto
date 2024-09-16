@@ -106,6 +106,7 @@ message Mosaic {
         uint32 update_rate = 2;
         uint32 position_broadcast_interval = 3;
         uint32 position_min_difference = 4;
+        uint32 payload_sri_limit = 5;
       }
 
       oneof action {
@@ -160,7 +161,8 @@ message Mosaic {
         double latitude = 1;
         double longitude = 2;
         double altitude = 3;
-        google.protobuf.Timestamp timestamp = 4;
+        uint32 position_error = 4;
+        google.protobuf.Timestamp timestamp = 5;
     }
 
     oneof payload {
