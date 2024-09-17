@@ -144,3 +144,7 @@ message Packet {
         Error error = 2;
     }
 }
+
+message Packets {
+    repeated Packet packets = 1;
+}
