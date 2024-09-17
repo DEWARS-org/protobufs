@@ -82,3 +82,11 @@ message Feature {
 message GeoData {
     repeated Feature features = 1;
 }
+
+message GeoDataRequest {
+    string dataset = 1;
+    google.protobuf.Timestamp start = 2;
+    google.protobuf.Timestamp end = 3;
+    double start_frequency = 4;
+    double end_frequency = 5;
+}
