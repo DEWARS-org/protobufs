@@ -107,6 +107,8 @@ message Mosaic {
         uint32 position_broadcast_interval = 3;
         float position_min_difference = 4;
         uint32 payload_sri_limit = 5;
+        bool send_status = 6;
+        uint32 status_broadcast_interval = 7;
       }
 
       oneof action {
@@ -165,11 +167,23 @@ message Mosaic {
         google.protobuf.Timestamp timestamp = 5;
     }
 
+    message Status {
+        enum GNSSState {
+            UNKNOWN = 0;
+            NO_FIX = 1;
+            TWO_D = 2;
+            THREE_D = 3;
+        }
+
+        GNSSState gnss_state = 1;
+    }
+
     oneof payload {
       Signals signals = 1;
       C2 c2 = 2;
       TaskQueue task_queue = 3;
       Position sensor_position = 4;
+      Status sensor_status = 5;
     }
   }
 
@@ -185,6 +199,8 @@ message Mosaic {
         FFT_SIZE = 7;
         DETECTION_SPACING = 8;
         TARGET_LIST = 9;
+        GNSS = 10;
+        PACKET_DECODE = 11;
     }
 
     ErrorCode code = 1;
