@@ -1,20 +1,16 @@
 {
-  "version": "3",
-  "packages": {
-    "specifiers": {
-      "npm:@bufbuild/protobuf@^2.0.0": "npm:@bufbuild/protobuf@2.0.0"
-    },
-    "npm": {
-      "@bufbuild/protobuf@2.0.0": {
-        "integrity": "sha512-sw2JhwJyvyL0zlhG61aDzOVryEfJg2PDZFSV7i7IdC7nAE41WuXCru3QWLGiP87At0BMzKOoKO/FqEGoKygGZQ==",
-        "dependencies": {}
-      }
+  "version": "4",
+  "specifiers": {
+    "npm:@bufbuild/protobuf@^2.1.0": "2.1.0"
+  },
+  "npm": {
+    "@bufbuild/protobuf@2.1.0": {
+      "integrity": "sha512-+2Mx67Y3skJ4NCD/qNSdBJNWtu6x6Qr53jeNg+QcwiL6mt0wK+3jwHH2x1p7xaYH6Ve2JKOVn0OxU35WsmqI9A=="
     }
   },
-  "remote": {},
   "workspace": {
     "dependencies": [
-      "npm:@bufbuild/protobuf@^2.0.0"
+      "npm:@bufbuild/protobuf@^2.1.0"
     ]
   }
 }

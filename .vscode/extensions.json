@@ -1,7 +1,0 @@
-{
-  "recommendations": [
-    "bufbuild.vscode-buf",
-    "pbkit.vscode-pbkit",
-    "denoland.vscode-deno"
-  ]
-}

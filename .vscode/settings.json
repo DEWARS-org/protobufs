@@ -1,8 +1,0 @@
-{
-  "deno.enable": true,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "denoland.vscode-deno",
-  "[proto]": {
-    "editor.defaultFormatter": "bufbuild.vscode-buf"
-  }
-}

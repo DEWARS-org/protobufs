@@ -1,0 +1,16 @@
+[package]
+name = "dewars_protobufs"
+edition = "2021"
+version = "0.3.24"
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+]
+
+[lib]
+name = "dewars_protobufs"
+path = "src/lib.rs"
+
+[dependencies]
+prost = "0.13.3"
+prost-types = "0.13.3"

@@ -1,3 +1,4 @@
 packages/ts/lib/*
-packages/rust/lib/*
+packages/rust/src/generated/*
+packages/rust/target
 !.gitkeep

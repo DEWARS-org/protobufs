@@ -1,7 +1,11 @@
 version: v1
 plugins:
-  - plugin: es
+  - plugin: buf.build/bufbuild/es:v2.1.0
     opt: target=ts
     out: packages/ts/lib
-  - plugin: buf.build/community/neoeinstein-prost:v0.3.1
-    out: packages/rust/lib
+  - plugin: buf.build/community/neoeinstein-prost:v0.4.0
+    out: packages/rust/src/generated
+  - plugin: buf.build/community/neoeinstein-prost-crate:v0.4.1
+    out: packages/rust/src/generated
+    opt:
+      - no_features

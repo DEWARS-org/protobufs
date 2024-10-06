@@ -1,5 +1,5 @@
 syntax = "proto3";
-package dewars.geocoder;
+package dewars.ml.translation;
 
 import "google/protobuf/timestamp.proto";
 
