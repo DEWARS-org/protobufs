@@ -45,7 +45,7 @@ jobs:
         with:
           deno-version: rc
       - name: Publish to JSR
-        run: npx jsr publish --unstable-sloppy-imports
+        run: deno publish --unstable-sloppy-imports
 
   publish-cargo:
     runs-on: ubuntu-24.04
