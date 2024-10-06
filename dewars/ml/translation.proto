@@ -1,0 +1,28 @@
+syntax = "proto3";
+package dewars.geocoder;
+
+import "google/protobuf/timestamp.proto";
+
+message Sentence {
+    message Word {
+        google.protobuf.Timestamp start = 1;
+        google.protobuf.Timestamp stop = 2;
+        uint32 confidence = 3;
+        string text_original = 4;
+        string text_transcribed = 5;
+        string text_translated = 6;
+        string text_overwritten = 7;
+    }
+
+    message Speaker {
+        string id = 1;
+        string name = 2;
+    }
+
+    string id = 1;
+    google.protobuf.Timestamp start = 2;
+    google.protobuf.Timestamp stop = 3;
+    Speaker speaker = 4;
+    uint32 speaker_confidence = 5;
+    repeated Word words = 6;
+}
