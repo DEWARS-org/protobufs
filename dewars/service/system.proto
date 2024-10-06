@@ -1,21 +1,6 @@
 syntax = "proto3";
 package dewars.service.system;
 
-enum Classification {
-  UNOFFICIAL = 0;
-  OFFICIAL = 1;
-  PROTECTED = 2;
-  SECRET = 3;
-  TOP_SECRET = 4;
-}
-
-message SecurityMarking {
-  Classification classification = 1;
-  string releasability = 2;
-  repeated string caveats = 3;
-}
-
 message System {
   string id = 1;
-  SecurityMarking security = 2;
 }

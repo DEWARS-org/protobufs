@@ -14,6 +14,13 @@ export * as Peering from "./lib/peering/peering_pb.ts";
 export * as MosaicPlugin from "./lib/plugin/mosaic_pb.ts";
 export * as Plugin from "./lib/plugin/plugin_pb.ts";
 
+// Security
+import * as Marking from "./lib/security/marking_pb.ts";
+
+export const Security = {
+  Marking,
+};
+
 // service
 import * as GeoData from "./lib/service/geodata_pb.ts";
 import * as Heartbeat from "./lib/service/heartbeat_pb.ts";
