@@ -40,6 +40,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ts_code
+      - name: Set up Deno
+        uses: denolib/setup-deno@main
+        with:
+          deno-version: rc
       - name: Publish to JSR
         run: npx jsr publish --unstable-sloppy-imports
 

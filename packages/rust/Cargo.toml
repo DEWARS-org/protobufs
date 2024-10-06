@@ -2,14 +2,13 @@
 name = "dewars_protobufs"
 edition = "2021"
 version = "0.3.24"
+description = "DEWARS Protobuf definitions"
+repository = "https://github.com/DEWARS-org/protobufs"
+license-file = "LICENSE"
 include = [
     "**/*.rs",
     "Cargo.toml",
 ]
-
-[lib]
-name = "dewars_protobufs"
-path = "src/lib.rs"
 
 [dependencies]
 prost = "0.13.3"
