@@ -56,6 +56,4 @@ jobs:
       - name: Check Library
         run: cargo check
       - name: Publish to crates.io
-        run: cargo publish --token ${{ CARGO_TOKEN }}
-        env:
-          CARGO_TOKEN: ${{ secrets.CARGO_TOKEN }}
+        run: cargo publish --token ${{ secrets.CARGO_TOKEN }}
