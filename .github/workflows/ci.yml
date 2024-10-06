@@ -6,9 +6,9 @@ permissions: write-all
 
 jobs:
   codegen:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - name: Checkout code & submodules
+      - name: Checkout code
         uses: actions/checkout@v4
       - name: Setup Buf
         uses: bufbuild/buf-setup-action@main
@@ -30,7 +30,7 @@ jobs:
           path: packages/ts
 
   publish-jsr:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: codegen
     permissions:
       contents: read
@@ -41,14 +41,14 @@ jobs:
         with:
           name: ts_code
       - name: Set up Deno
-        uses: denolib/setup-deno@v1
+        uses: denoland/setup-deno@main
         with:
           deno-version: rc
       - name: Publish to JSR
         run: npx jsr publish --unstable-sloppy-imports
 
   publish-cargo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: codegen
     steps:
       - name: Download Rust code
@@ -60,4 +60,7 @@ jobs:
       - name: Check Library
         run: cargo check
       - name: Publish to crates.io
-        run: cargo publish --token ${{ secrets.CARGO_TOKEN }}
+        uses: katyo/publish-crates@v2
+        with:
+            registry-token: ${{ secrets.CARGO_TOKEN }}
+            ignore-unpublished-changes: true
