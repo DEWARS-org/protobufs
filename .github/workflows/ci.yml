@@ -41,7 +41,7 @@ jobs:
         with:
           name: ts_code
       - name: Set up Deno
-        uses: denolib/setup-deno@main
+        uses: denolib/setup-deno@v1
         with:
           deno-version: rc
       - name: Publish to JSR
