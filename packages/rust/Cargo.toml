@@ -1,7 +1,7 @@
 [package]
 name = "dewars_protobufs"
 edition = "2021"
-version = "0.3.25"
+version = "__PACKAGE_VERSION__"
 description = "DEWARS Protobuf definitions"
 repository = "https://github.com/DEWARS-org/protobufs"
 license-file = "LICENSE"

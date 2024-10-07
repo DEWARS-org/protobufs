@@ -1,4 +1,4 @@
-name: CI
+name: Publish to Cargo & JSR
 
 on: push
 
@@ -15,9 +15,17 @@ jobs:
         with:
           github_token: ${{ github.token }}
       - name: Generate code
-        run: buf generate dewars
-      - name: Copy license
-        run: cp LICENSE packages/ts && cp LICENSE packages/rust
+        run: buf generate
+      - name: Set Package Versions
+        run: |
+          sed -i "s/__PACKAGE_VERSION__/$(cat /version)/g" packages/ts/deno.json
+          sed -i "s/__PACKAGE_VERSION__/$(cat /version)/g" packages/rust/Cargo.toml
+      - name: Copy license & README
+        run: |
+          cp LICENSE packages/ts
+          cp LICENSE packages/rust
+          cp README.md packages/ts
+          cp README.md packages/rust
       - name: Upload Rust code
         uses: actions/upload-artifact@v4
         with:
@@ -45,7 +53,7 @@ jobs:
         with:
           deno-version: rc
       - name: Publish to JSR
-        run: deno publish --unstable-sloppy-imports
+        run: deno publish
 
   publish-cargo:
     runs-on: ubuntu-24.04

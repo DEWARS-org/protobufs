@@ -1,14 +1,11 @@
 {
   "name": "@dewars/protobufs",
-  "version": "0.3.25",
+  "version": "__PACKAGE_VERSION__",
   "exports": {
     ".": "./mod.ts"
   },
   "imports": {
     "@bufbuild/protobuf": "npm:@bufbuild/protobuf@^2.1.0"
-  },
-  "tasks": {
-    "publish": "deno publish --unstable-sloppy-imports --allow-slow-types --allow-dirty"
   },
   "publish": {
     "exclude": [
