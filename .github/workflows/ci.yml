@@ -18,8 +18,8 @@ jobs:
         run: buf generate
       - name: Set Package Versions
         run: |
-          sed -i "s/__PACKAGE_VERSION__/$(cat /version)/g" packages/ts/deno.json
-          sed -i "s/__PACKAGE_VERSION__/$(cat /version)/g" packages/rust/Cargo.toml
+          sed -i "s/__PACKAGE_VERSION__/$(cat version)/g" packages/ts/deno.json
+          sed -i "s/__PACKAGE_VERSION__/$(cat version)/g" packages/rust/Cargo.toml
       - name: Copy license & README
         run: |
           cp LICENSE packages/ts
